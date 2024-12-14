@@ -98,6 +98,7 @@ namespace Client.Main.Content
         private string FindTexturePath(string dataPath, string ext)
         {
             string fullPath = Path.ChangeExtension(dataPath, _readers[ext].GetType().Name.ToLowerInvariant().Replace("reader", ""));
+            fullPath = PathUtils.NormalizePath(fullPath);
 
             if (!File.Exists(fullPath))
             {

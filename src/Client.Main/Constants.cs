@@ -17,6 +17,12 @@ namespace Client.Main
 
                 // Game settings
 
+#if WINDOWS_UAP
+                public static bool CASE_SENSITIVE_PATH = false;
+#else
+                public static bool CASE_SENSITIVE_PATH = true;
+#endif
+
 #if DEBUG
                 public static Type ENTRY_SCENE = typeof(Scenes.GameScene);
                 public static bool BACKGROUND_MUSIC = true;

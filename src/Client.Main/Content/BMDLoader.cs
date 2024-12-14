@@ -48,6 +48,7 @@ namespace Client.Main.Content
             try
             {
                 path = Path.Combine(Constants.DataPath, path);
+                path = PathUtils.NormalizePath(path);
 
                 if (!File.Exists(path))
                 {

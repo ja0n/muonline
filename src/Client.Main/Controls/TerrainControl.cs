@@ -118,11 +118,13 @@ namespace Client.Main.Controls
             foreach (var kvp in TextureMappingFiles)
             {
                 textureMapFiles[kvp.Key] = Path.Combine(fullPathWorldFolder, kvp.Value);
+                textureMapFiles[kvp.Key] = PathUtils.NormalizePath(textureMapFiles[kvp.Key]);
             }
 
             for (int i = 1; i <= 16; i++)
             {
                 textureMapFiles[13 + i] = Path.Combine(fullPathWorldFolder, $"ExtTile{i:00}.ozj");
+                textureMapFiles[13 + i] = PathUtils.NormalizePath(textureMapFiles[13 + i]);
             }
 
             _textures = new Texture2D[textureMapFiles.Length];
@@ -138,6 +140,7 @@ namespace Client.Main.Controls
             }
 
             var textureLightPath = Path.Combine(fullPathWorldFolder, "TerrainLight.OZB");
+            textureLightPath = PathUtils.NormalizePath(textureLightPath);
 
             if (File.Exists(textureLightPath))
             {
